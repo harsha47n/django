@@ -1,0 +1,58 @@
+{% load static %}
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    <!-- "{% static 'css/main.css' %}" -->
+  </head>
+  <body>
+  <div>
+     <h1>Password Encryption</h1>
+  </div>
+    <div class="s131">
+
+      <form method="POST">
+      	{%csrf_token%}
+          <div class="input-field first-wrap">
+            <input id="search" name="data" type="text" placeholder="Enter the text you want to encrypt" />
+          </div>
+        <div class="inner-form">
+<!--          <input type="file" id="file" name="file" accept="video/*" onchange="loadFile(event)">-->
+          <br><br><br><br><br><br><br>
+<!--          <div class="input-field second-wrap">-->
+            <div class="input-select">
+              <select data-trigger=""  name ='algorithm' class="choices-single-default">
+                <option placeholder="">Algorithm</option>
+                <option id = "AES">AES</option>
+                <option>DES</option>
+                <option>3DES</option>
+                <!-- <option></option> -->
+              </select>
+            </div>
+<!--          </div>-->
+          <div class="input-field third-wrap">
+          	<input type="submit" value='Generate' name='cluster' class="btn-search">
+          </div>
+
+        </div>
+<!--          <div class="input-field">-->
+          	<input type="submit" value='decrypt' name='cluster' class="btn-search">
+<!--          </div>-->
+
+
+      </form>
+    </div>
+    <script src="{% static 'js/extention/choices.js' %}"></script>
+    <script>
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false
+      });
+
+    </script>
+  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

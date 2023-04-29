@@ -1,0 +1,54 @@
+{% load static %}
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    <script>
+        function decrypt(){
+        var ele = document.getElementById("data").innerHTML;
+        console.log(document.getElementById("data").innerHTML);
+        document.getElementById("message").innerHTML=ele;
+      }
+    </script>
+    <!-- "{% static 'css/main.css' %}" -->
+  </head>
+  <body>
+
+    <div class="s131">
+
+
+      <form method="POST">
+      	{%csrf_token%}
+            <div>
+            <a href = "{% url 'home' %}"><b>Go to home</b></a>
+              </div>
+            <label>The given text is : </label><p id ="data">{{textData}}</p><br>
+              <label>The cipher text is : </label><p id="cipher" style="overflow-wrap : break-word">{{cipherText}}</p>
+              <label> The Choosen Algorithm is : </label><p>{{algo}}</p><br>
+              <h5><b>{{algo}}</b></h5>
+              <p>{{information}}
+              </p>
+      </form>
+      <div class="inner-form">
+       <div class="input-field third-wrap">
+         <img src="{% static 'output.png' %}" alt="#" style="width:300px; height:300px;">
+
+         <button type="submit" value='decrypt' name='cluster' class="btn-search" onclick="decrypt()" style="display : block; margin-top:8px;border-radius:5px;">Decrypt</button>
+      </div>
+        <data><b>Decrypted Message :  <p id="message" ></p></b></data>
+
+        </div>
+    </div>
+    <script src="{% static 'js/extention/choices.js' %}"></script>
+    <script>
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false
+      });
+    </script>
+  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
